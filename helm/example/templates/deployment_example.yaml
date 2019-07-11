@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ template "example.name" . }}-deployment
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ template "example.name" . }}-pod
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ template "example.name" . }}-pod
+  template:
+    metadata:
+      labels:
+        app: {{ template "example.name" . }}-pod
+        name: {{ template "example.name" . }}-pod
+    spec:
+      containers:
+        - name: {{ template "example.name" . }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP

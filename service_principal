@@ -1,0 +1,7 @@
+--subscription-id '174b76ca-1fdd-40e1-af14-8a9ef437199c'
+--app-id 'ea6055cd-13dd-483f-8409-910325ad6b55'
+--password '31a3ae69-3190-40ec-a684-321ace607db0'
+--tenant '149ec02b-dd91-4520-865e-c116832e8b64'
+
+# To delete the service principal
+# az ad sp delete --id 'ea6055cd-13dd-483f-8409-910325ad6b55' --subscription '174b76ca-1fdd-40e1-af14-8a9ef437199c'
